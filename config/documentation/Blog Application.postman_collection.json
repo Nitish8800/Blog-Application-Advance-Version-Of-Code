@@ -1,0 +1,789 @@
+{
+  "info": {
+    "_postman_id": "9049f169-ae65-4d1a-af37-e924a402f1dd",
+    "name": "Blog Application",
+    "description": "User can upload any post and also like,dislike,comment the post.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30397308"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Check Run Server",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{baseUrl}}",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User Sign Up",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"vishav\",\r\n    \"email\":\"vishav@gmail.com\",\r\n    \"password\":\"Niku@123\",\r\n    \"phoneNumber\":\"7827792021\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/users/signup",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "signup"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"vishav@gmail.com\",\r\n    \"password\":\"Niku@125\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/users/login",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"oldPassword\":\"Niku@123\",\r\n    \"newPassword\":\"Niku@125\",\r\n    \"confirmPassword\":\"Niku@125\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/users/update_password",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "update_password"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Current User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"phoneNumber\":\"8937821413\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/users/me/update",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "me", "update"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Current User",
+          "request": {
+            "auth": {
+              "type": "jwt",
+              "jwt": [
+                {
+                  "key": "algorithm",
+                  "value": "HS256",
+                  "type": "string"
+                },
+                {
+                  "key": "isSecretBase64Encoded",
+                  "value": false,
+                  "type": "boolean"
+                },
+                {
+                  "key": "payload",
+                  "value": "{}",
+                  "type": "string"
+                },
+                {
+                  "key": "addTokenTo",
+                  "value": "header",
+                  "type": "string"
+                },
+                {
+                  "key": "headerPrefix",
+                  "value": "Bearer",
+                  "type": "string"
+                },
+                {
+                  "key": "queryParamKey",
+                  "value": "token",
+                  "type": "string"
+                },
+                {
+                  "key": "header",
+                  "value": "{}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{baseUrl}}/users/me",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "me"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{baseUrl}}/users/logout",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["users", "logout"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "All user api's here."
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Create Categories",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Food\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/categories/create",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get ALL Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{baseUrl}}/categories?page=2",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "2"
+                },
+                {
+                  "key": "limit",
+                  "value": "1",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "log",
+                  "disabled": true
+                },
+                {
+                  "key": "dir",
+                  "value": "desc",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Categories by Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://{{baseUrl}}/categories/6527a0abfcc2eeed405a4b30",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories", "6527a0abfcc2eeed405a4b30"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Categories",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Travel Blog\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/categories/65279fdcfcc2eeed405a4b29",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories", "65279fdcfcc2eeed405a4b29"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Single Categories by Id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjY0OTlhMTQyZjZkYzYxMWQxYzMyZSIsImVtYWlsIjoiaG9uZXlAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOjc4Mjc3OTIwMTEsImlhdCI6MTY5NzAwODA2MSwiZXhwIjoxNjk3MDk0NDYxfQ.B-ezd6198yH1fRf48LbEQ5LUc7MiDB50CTAXukeeJwc",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/categories/65265991b8ba05ba37a15d70",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories", "65265991b8ba05ba37a15d70"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Post",
+      "item": [
+        {
+          "name": "Create New Post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Chicken Butter Masala",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "It was Spicy",
+                  "type": "text"
+                },
+                {
+                  "key": "categories",
+                  "value": "6527a0abfcc2eeed405a4b30",
+                  "type": "text"
+                },
+                {
+                  "key": "picture",
+                  "type": "file",
+                  "src": "Niku.jpeg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/posts/create",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["posts", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Posts",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/posts?page=1",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["posts"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "de",
+                  "disabled": true
+                },
+                {
+                  "key": "dir",
+                  "value": "desc",
+                  "disabled": true
+                },
+                {
+                  "key": "enddate",
+                  "value": "2023-10-15",
+                  "disabled": true
+                },
+                {
+                  "key": "startdate",
+                  "value": "2023-10-13",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Post",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/posts/6527a248fcc2eeed405a4b3b",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["posts", "6527a248fcc2eeed405a4b3b"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Post",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Chicken Masala ",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "lib",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "categories",
+                  "value": "6526537818ac505b1304a078",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "picture",
+                  "type": "file",
+                  "src": "Professional Pic.jpeg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/posts/6527a248fcc2eeed405a4b3b",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["posts", "6527a248fcc2eeed405a4b3b"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Post",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "React ",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "lib",
+                  "type": "text"
+                },
+                {
+                  "key": "categories",
+                  "value": "6526537818ac505b1304a078",
+                  "type": "text"
+                },
+                {
+                  "key": "picture",
+                  "type": "file",
+                  "src": "Niku.jpeg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/posts/65268d44ac36d754c1f8496d",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["posts", "65268d44ac36d754c1f8496d"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Create New Comments",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"comment\":\"Nice Taste \",\r\n    \"postId\":\"6527a248fcc2eeed405a4b3b\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/comments",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["comments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Comments",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"comment\":\"Very Good Database👌\",\r\n    \"postId\":\"65267dc1677021aa3c46c52b\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/comments/6526a77cc4e62de05e14a39d",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["comments", "6526a77cc4e62de05e14a39d"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Comments",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/comments/6526a8368227b002c61002fa",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["comments", "6526a8368227b002c61002fa"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Comments of Posts",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjc5ZDkwOTk4MjI0NGEzZGE1NDU5YiIsImVtYWlsIjoidmlzaGF2QGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDIxLCJpYXQiOjE2OTcwOTUwODksImV4cCI6MTY5NzE4MTQ4OX0.eGSxm0lr56gqyTNtFCWcf0y8j19WTbY_lsvt1FUoRyY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "picture",
+                  "type": "file",
+                  "src": "IMG20230825070257.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/comments/6527a248fcc2eeed405a4b3b/posts",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["comments", "6527a248fcc2eeed405a4b3b", "posts"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Feelings : Like, Dislike",
+      "item": [
+        {
+          "name": "Create New Like || Dislike",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjU1MDJjMGE3NTc3ODljOWQ4ZGExZSIsImVtYWlsIjoibml0aXNoQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDE5LCJpYXQiOjE2OTcwNzc1MzksImV4cCI6MTY5NzE2MzkzOX0.GT4np-AXS97Qk6yrz-0xLFFpfjJugn5d1w3yc9giGG8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"reactType\":\"like\",\r\n    \"postId\":\"6527a248fcc2eeed405a4b3b\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/feelings",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["feelings"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get liked Post",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MjU1MDJjMGE3NTc3ODljOWQ4ZGExZSIsImVtYWlsIjoibml0aXNoQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjo3ODI3NzkyMDE5LCJpYXQiOjE2OTcwMjgzMjAsImV4cCI6MTY5NzExNDcyMH0.13B62HsRpN8PTGttmjsNDBBcTjHHnz9w0kWRxT-8W10",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{baseUrl}}/feelings",
+              "protocol": "http",
+              "host": ["{{baseUrl}}"],
+              "path": ["feelings"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
